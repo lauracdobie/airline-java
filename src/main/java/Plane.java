@@ -3,10 +3,12 @@ public class Plane {
     private PlaneType model;
     private int capacity;
     private int totalWeight;
+    private int seats;
 
-    public Plane(PlaneType model, int capacity, int totalWeight){
+    public Plane(PlaneType model, int capacity, int seats, int totalWeight){
         this.model = model;
         this.capacity = capacity;
+        this.seats = seats;
         this.totalWeight = totalWeight;
     }
 
@@ -24,6 +26,14 @@ public class Plane {
 
     public void setCapacity(int capacity) {
         this.capacity = capacity;
+    }
+
+    public int getSeats() {
+        return this.seats;
+    }
+
+    public void setSeats(int number) {
+        this.seats = number;
     }
 
     public int getTotalWeight() {

@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
 public class FlightManager {
 
@@ -40,5 +42,24 @@ public class FlightManager {
     public void bookPassengerOntoFlight(Passenger passenger) {
         this.flight.addPassengerToFlight(passenger);
         this.assignFlightToPassenger();
+    }
+
+    public ArrayList getShuffledSeatNumbers() {
+        ArrayList<Integer> seatNumbers = new ArrayList<>();
+        int seatNumber = 1;
+        int totalSeats = this.flight.getTotalSeats();
+
+        while (seatNumbers.size() < totalSeats) {
+            seatNumbers.add(seatNumber);
+            seatNumber ++;
+        }
+        Collections.shuffle(seatNumbers);
+        return seatNumbers;
+    }
+
+    public int getRandomSeatNumber() {
+        ArrayList<Integer> seatNumbers = this.getShuffledSeatNumbers();
+        int seatNumber = seatNumbers.remove(0);
+        return seatNumber;
     }
 }

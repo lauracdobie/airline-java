@@ -13,7 +13,7 @@ public class PassengerTest {
     @Before
     public void before() {
         jetSetter = new Passenger("Giovanni Rosso", 2);
-        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 30000);
+        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 200, 30000);
         flight = new Flight(hopefulPuffin, "EZY3498", IATACode.EDI, IATACode.GLA, "14:00");
     }
 

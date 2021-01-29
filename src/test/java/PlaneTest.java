@@ -8,7 +8,7 @@ public class PlaneTest {
 
     @Before
     public void before() {
-        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 20000);
+        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 200, 20000);
     }
 
     @Test
@@ -30,6 +30,17 @@ public class PlaneTest {
     @Test
     public void canSetCapacity() {
         hopefulPuffin.setCapacity(150);
+        assertEquals(150, hopefulPuffin.getCapacity());
+    }
+
+    @Test
+    public void canGetSeats() {
+        assertEquals(200, hopefulPuffin.getSeats());
+    }
+
+    @Test
+    public void canSetSeats() {
+        hopefulPuffin.setSeats(150);
         assertEquals(150, hopefulPuffin.getCapacity());
     }
 

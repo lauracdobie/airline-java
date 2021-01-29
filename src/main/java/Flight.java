@@ -38,6 +38,10 @@ public class Flight {
         return this.plane.getCapacity();
     }
 
+    public int getTotalSeats() {
+        return this.plane.getSeats();
+    }
+
     public String getFlightNumber() {
         return this.flightNumber;
     }

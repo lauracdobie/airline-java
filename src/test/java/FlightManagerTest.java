@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -21,8 +23,8 @@ public class FlightManagerTest {
         jetSetter1 = new Passenger("Giovanni Rosso", 2);
         jetSetter2 = new Passenger("Mercedes Lindo", 1);
         jetSetter3 = new Passenger("Ludovine Le Mercier", 3);
-        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 30000);
-        busyPlane = new Plane(PlaneType.GLIDINGGUILLEMOT403, 1, 15000);
+        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 200, 30000);
+        busyPlane = new Plane(PlaneType.GLIDINGGUILLEMOT403, 1, 1, 15000);
         flight1 = new Flight(hopefulPuffin, "EZY3498", IATACode.EDI, IATACode.GLA, "14:00");
         flight2 = new Flight(busyPlane, "EZY6142", IATACode.LGW, IATACode.NCL, "07:00");
         flightManager = new FlightManager(flight1);
@@ -68,5 +70,17 @@ public class FlightManagerTest {
         flightManager.bookPassengerOntoFlight(jetSetter3);
         assertEquals(flight1, jetSetter3.getFlight());
         assertEquals(14910, flightManager.calculateRemainingBaggageWeight());
+    }
+
+    @Test
+    public void canGetShuffledListOfSeatNumbers() {
+        assertEquals(200, flightManager.getShuffledSeatNumbers().size());
+    }
+
+    @Test
+    public void canGetRandomSeatNumber() {
+        flightManager.getRandomSeatNumber();
+        ArrayList<Integer> remainingSeatNumbers = flightManager.getShuffledSeatNumbers();
+        assertEquals(199, remainingSeatNumbers.size());
     }
 }
