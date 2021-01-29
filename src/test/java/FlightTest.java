@@ -26,4 +26,15 @@ public class FlightTest {
     public void checkPassengerListStartsEmpty() {
         assertEquals(0, flight1.getNumberOfPassengers());
     }
+
+    @Test
+    public void checkFlightHasPlane() {
+        assertEquals(hopefulPuffin, flight1.getPlane());
+    }
+
+    @Test
+    public void canSetPlane() {
+        flight1.setPlane(fullPlane);
+        assertEquals(fullPlane, flight1.getPlane());
+    }
 }

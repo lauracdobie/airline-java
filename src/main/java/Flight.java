@@ -22,6 +22,14 @@ public class Flight {
         return this.passengers.size();
     }
 
+    public Plane getPlane() {
+        return this.plane;
+    }
+
+    public void setPlane(Plane plane) {
+        this.plane = plane;
+    }
+
     public int getAvailableSeats() {
         return this.plane.getCapacity();
     }
