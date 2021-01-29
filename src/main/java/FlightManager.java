@@ -27,6 +27,10 @@ public class FlightManager {
     public int getFlightBaggageWeight() {
         return this.baggageWeight;
     }
+
+    public void setFlightBaggageWeight(int weight) {
+        this.baggageWeight = weight;
+    }
 //
 //    public int calculateRemainingBaggageWeight() {
 //        return this.getFlightBaggageWeight() - this.getTotalPassengerBaggageWeight();

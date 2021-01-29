@@ -47,6 +47,12 @@ public class FlightManagerTest {
         assertEquals(15000, flightManager.getFlightBaggageWeight());
     }
 
+    @Test
+    public void canSetFlightBaggageWeight() {
+        flightManager.setFlightBaggageWeight(28000);
+        assertEquals(28000, flightManager.getFlightBaggageWeight());
+    }
+
 //    @Test
 //    public void canCalculateRemainingBaggageWeight() {
 //        assertEquals(14955, flightManager.calculateRemainingBaggageWeight());
