@@ -34,8 +34,8 @@ public class PassengerTest {
         assertEquals(3, jetSetter.getNumberOfBags());
     }
 
-    @Test
-    public void canGetBaggageWeight() {
-        assertEquals(30, jetSetter.getBaggageWeight());
-    }
+//    @Test
+//    public void canGetBaggageWeight() {
+//        assertEquals(30, jetSetter.getBaggageWeight());
+//    }
 }

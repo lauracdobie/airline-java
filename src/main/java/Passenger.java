@@ -23,7 +23,7 @@ public class Passenger {
         this.bags = bags;
     }
 
-    public int getBaggageWeight() {
-        return this.bags * 15;
-    }
+//    public int getBaggageWeight() {
+//        return this.bags * 15;
+//    }
 }
