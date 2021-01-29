@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.theories.suppliers.TestedOn;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -42,5 +43,23 @@ public class FlightTest {
     public void canSetPlane() {
         flight1.setPlane(fullPlane);
         assertEquals(fullPlane, flight1.getPlane());
+    }
+
+    @Test
+    public void canSetDestination() {
+        flight1.setDestination(IATACode.ABZ);
+        assertEquals(IATACode.ABZ, flight1.getDestination());
+    }
+
+    @Test
+    public void canSetDepartureAirport() {
+        flight1.setDepartureAirport(IATACode.CWL);
+        assertEquals(IATACode.CWL, flight1.getDepartureAirport());
+    }
+
+    @Test
+    public void canSetDepartureTime() {
+        flight1.setDepartureTime("08:00");
+        assertEquals("08:00", flight1.getDepartureTime());
     }
 }
