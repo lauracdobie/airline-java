@@ -7,10 +7,14 @@ import static org.junit.Assert.assertNull;
 public class PassengerTest {
 
     Passenger jetSetter;
+    Flight flight;
+    Plane hopefulPuffin;
 
     @Before
     public void before() {
         jetSetter = new Passenger("Giovanni Rosso", 2);
+        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 30000);
+        flight = new Flight(hopefulPuffin, "EZY3498", IATACode.EDI, IATACode.GLA, "14:00");
     }
 
     @Test
@@ -38,5 +42,11 @@ public class PassengerTest {
     @Test
     public void checkFlightPropertyStartsAsNull() {
         assertNull(jetSetter.getFlight());
+    }
+
+    @Test
+    public void canSetPassengerFlight() {
+        jetSetter.setFlight(flight);
+        assertEquals(flight, jetSetter.getFlight());
     }
 }

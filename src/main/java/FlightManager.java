@@ -29,4 +29,16 @@ public class FlightManager {
     public int calculateRemainingBaggageWeight() {
         return this.getFlightBaggageWeight() - this.getTotalPassengerBaggageWeight();
     }
+
+    public void assignFlightToPassenger() {
+        ArrayList<Passenger> flightPassengers = this.flight.getPassengerList();
+        for (Passenger passenger : flightPassengers) {
+            passenger.setFlight(this.flight);
+        }
+    }
+
+    public void bookPassengerOntoFlight(Passenger passenger) {
+        this.flight.addPassengerToFlight(passenger);
+        this.assignFlightToPassenger();
+    }
 }

@@ -8,6 +8,7 @@ public class FlightManagerTest {
 
     Passenger jetSetter1;
     Passenger jetSetter2;
+    Passenger jetSetter3;
     Plane hopefulPuffin;
     Plane busyPlane;
     Flight flight1;
@@ -19,6 +20,7 @@ public class FlightManagerTest {
     public void before() {
         jetSetter1 = new Passenger("Giovanni Rosso", 2);
         jetSetter2 = new Passenger("Mercedes Lindo", 1);
+        jetSetter3 = new Passenger("Ludovine Le Mercier", 3);
         hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 30000);
         busyPlane = new Plane(PlaneType.GLIDINGGUILLEMOT403, 1, 15000);
         flight1 = new Flight(hopefulPuffin, "EZY3498", IATACode.EDI, IATACode.GLA, "14:00");
@@ -52,5 +54,19 @@ public class FlightManagerTest {
     @Test
     public void canGetRemainingBaggageWeight() {
         assertEquals(14955, flightManager.calculateRemainingBaggageWeight());
+    }
+
+    @Test
+    public void canAssignFlightToPassenger() {
+        flightManager.assignFlightToPassenger();
+        assertEquals(flight1, jetSetter1.getFlight());
+        assertEquals(flight1, jetSetter2.getFlight());
+    }
+
+    @Test
+    public void canBookPassengerOntoFlight() {
+        flightManager.bookPassengerOntoFlight(jetSetter3);
+        assertEquals(flight1, jetSetter3.getFlight());
+        assertEquals(14910, flightManager.calculateRemainingBaggageWeight());
     }
 }
