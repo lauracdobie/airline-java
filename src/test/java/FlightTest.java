@@ -10,7 +10,7 @@ public class FlightTest {
     Passenger jetSetter1;
     Passenger jetSetter2;
     Plane hopefulPuffin;
-    Plane fullPlane;
+    Plane busyPlane;
     Flight flight1;
     Flight flight2;
 
@@ -19,9 +19,9 @@ public class FlightTest {
         jetSetter1 = new Passenger("Giovanni Rosso", 2);
         jetSetter2 = new Passenger("Mercedes Lindo", 1);
         hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 30000);
-        fullPlane = new Plane(PlaneType.GLIDINGGUILLEMOT403, 0, 15000);
+        busyPlane = new Plane(PlaneType.GLIDINGGUILLEMOT403, 1, 15000);
         flight1 = new Flight(hopefulPuffin, "EZY3498", IATACode.EDI, IATACode.GLA, "14:00");
-        flight2 = new Flight(fullPlane, "EZY6142", IATACode.LGW, IATACode.NCL, "07:00");
+        flight2 = new Flight(busyPlane, "EZY6142", IATACode.LGW, IATACode.NCL, "07:00");
     }
 
     @Test
@@ -41,8 +41,8 @@ public class FlightTest {
 
     @Test
     public void canSetPlane() {
-        flight1.setPlane(fullPlane);
-        assertEquals(fullPlane, flight1.getPlane());
+        flight1.setPlane(busyPlane);
+        assertEquals(busyPlane, flight1.getPlane());
     }
 
     @Test
@@ -68,5 +68,13 @@ public class FlightTest {
         flight1.addPassengerToFlight(jetSetter1);
         flight1.addPassengerToFlight(jetSetter2);
         assertEquals(198, flight1.getAvailableSeats());
+    }
+
+    @Test
+    public void cannotBookPassengerOntoFlightIfNoSpaces() {
+        flight2.addPassengerToFlight(jetSetter1);
+        flight2.addPassengerToFlight(jetSetter2);
+        assertEquals(1, flight2.getNumberOfPassengers());
+        assertEquals(0, flight2.getAvailableSeats());
     }
 }
