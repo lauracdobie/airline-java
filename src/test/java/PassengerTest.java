@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 public class PassengerTest {
 
@@ -34,8 +35,8 @@ public class PassengerTest {
         assertEquals(3, jetSetter.getNumberOfBags());
     }
 
-//    @Test
-//    public void canGetBaggageWeight() {
-//        assertEquals(30, jetSetter.getBaggageWeight());
-//    }
+    @Test
+    public void checkFlightPropertyStartsAsNull() {
+        assertNull(jetSetter.getFlight());
+    }
 }
