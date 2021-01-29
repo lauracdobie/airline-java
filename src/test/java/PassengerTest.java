@@ -49,4 +49,15 @@ public class PassengerTest {
         jetSetter.setFlight(flight);
         assertEquals(flight, jetSetter.getFlight());
     }
+
+    @Test
+    public void canGetSeatNumber() {
+        assertEquals(0, jetSetter.getSeatNumber());
+    }
+
+    @Test
+    public void canSetSeatNumber() {
+        jetSetter.setSeatNumber(5);
+        assertEquals(5, jetSetter.getSeatNumber());
+    }
 }
