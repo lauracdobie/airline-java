@@ -13,6 +13,7 @@ public class FlightManagerTest {
     Flight flight1;
     Flight flight2;
     FlightManager flightManager;
+    FlightManager flightManager2;
 
     @Before
     public void before() {
@@ -23,6 +24,7 @@ public class FlightManagerTest {
         flight1 = new Flight(hopefulPuffin, "EZY3498", IATACode.EDI, IATACode.GLA, "14:00");
         flight2 = new Flight(busyPlane, "EZY6142", IATACode.LGW, IATACode.NCL, "07:00");
         flightManager = new FlightManager(flight1);
+        flightManager2 = new FlightManager(flight2);
         flight1.addPassengerToFlight(jetSetter1);
         flight1.addPassengerToFlight(jetSetter2);
     }
@@ -44,17 +46,11 @@ public class FlightManagerTest {
 
     @Test
     public void canGetFlightBaggageWeight() {
-        assertEquals(15000, flightManager.getFlightBaggageWeight());
+        assertEquals(7500, flightManager2.getFlightBaggageWeight());
     }
 
     @Test
-    public void canSetFlightBaggageWeight() {
-        flightManager.setFlightBaggageWeight(28000);
-        assertEquals(28000, flightManager.getFlightBaggageWeight());
+    public void canGetRemainingBaggageWeight() {
+        assertEquals(14955, flightManager.calculateRemainingBaggageWeight());
     }
-
-//    @Test
-//    public void canCalculateRemainingBaggageWeight() {
-//        assertEquals(14955, flightManager.calculateRemainingBaggageWeight());
-//    }
 }
