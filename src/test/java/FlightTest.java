@@ -62,4 +62,11 @@ public class FlightTest {
         flight1.setDepartureTime("08:00");
         assertEquals("08:00", flight1.getDepartureTime());
     }
+
+    @Test
+    public void canBookPassengerOntoFlightIfSpaces() {
+        flight1.addPassengerToFlight(jetSetter1);
+        flight1.addPassengerToFlight(jetSetter2);
+        assertEquals(198, flight1.getAvailableSeats());
+    }
 }
