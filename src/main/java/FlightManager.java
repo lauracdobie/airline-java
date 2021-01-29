@@ -3,9 +3,11 @@ import java.util.ArrayList;
 public class FlightManager {
 
     Flight flight;
+    int baggageWeight;
 
     public FlightManager (Flight flight) {
         this.flight = flight;
+        this.baggageWeight = this.flight.getPlane().getTotalWeight() / 2;
     }
 
     public int getPassengerBaggageWeight(Passenger passenger) {
@@ -23,10 +25,10 @@ public class FlightManager {
     }
 
     public int getFlightBaggageWeight() {
-        return this.flight.getPlane().getTotalWeight() / 2;
+        return this.baggageWeight;
     }
-
-//    public int calculateRemainingBaggageWeight() {
 //
+//    public int calculateRemainingBaggageWeight() {
+//        return this.getFlightBaggageWeight() - this.getTotalPassengerBaggageWeight();
 //    }
 }
