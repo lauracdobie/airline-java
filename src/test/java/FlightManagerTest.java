@@ -23,6 +23,8 @@ public class FlightManagerTest {
         flight1 = new Flight(hopefulPuffin, "EZY3498", IATACode.EDI, IATACode.GLA, "14:00");
         flight2 = new Flight(busyPlane, "EZY6142", IATACode.LGW, IATACode.NCL, "07:00");
         flightManager = new FlightManager(flight1);
+        flight1.addPassengerToFlight(jetSetter1);
+        flight1.addPassengerToFlight(jetSetter2);
     }
 
     @Test
@@ -33,5 +35,10 @@ public class FlightManagerTest {
     @Test
     public void canCalculatePassengerBaggageWeight(){
         assertEquals(30, flightManager.getPassengerBaggageWeight(jetSetter1));
+    }
+
+    @Test
+    public void canCalculateBaggageWeightForAllPassengers() {
+        assertEquals(45, flightManager.getTotalPassengerBaggageWeight());
     }
 }
