@@ -60,6 +60,7 @@ public class FlightManager {
     public int getRandomSeatNumber() {
         ArrayList<Integer> seatNumbers = this.getShuffledSeatNumbers();
         int seatNumber = seatNumbers.remove(0);
+        System.out.println(seatNumber);
         return seatNumber;
     }
 }

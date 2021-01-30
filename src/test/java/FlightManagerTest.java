@@ -79,8 +79,6 @@ public class FlightManagerTest {
 
     @Test
     public void canGetRandomSeatNumber() {
-        flightManager.getRandomSeatNumber();
-        ArrayList<Integer> remainingSeatNumbers = flightManager.getShuffledSeatNumbers();
-        assertEquals(199, remainingSeatNumbers.size());
+        assertNotNull(flightManager.getRandomSeatNumber());
     }
 }
