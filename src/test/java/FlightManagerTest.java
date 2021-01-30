@@ -3,14 +3,14 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 public class FlightManagerTest {
 
     Passenger jetSetter1;
     Passenger jetSetter2;
     Passenger jetSetter3;
+    Passenger jetSetter4;
     Plane hopefulPuffin;
     Plane busyPlane;
     Flight flight1;
@@ -23,6 +23,7 @@ public class FlightManagerTest {
         jetSetter1 = new Passenger("Giovanni Rosso", 2);
         jetSetter2 = new Passenger("Mercedes Lindo", 1);
         jetSetter3 = new Passenger("Ludovine Le Mercier", 3);
+        jetSetter4 = new Passenger("Rudolph Brun", 1);
         hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 200, 30000);
         busyPlane = new Plane(PlaneType.GLIDINGGUILLEMOT403, 1, 1, 15000);
         flight1 = new Flight(hopefulPuffin, "EZY3498", IATACode.EDI, IATACode.GLA, "14:00");
@@ -68,8 +69,14 @@ public class FlightManagerTest {
     @Test
     public void canBookPassengerOntoFlight() {
         flightManager.bookPassengerOntoFlight(jetSetter3);
+        flightManager.bookPassengerOntoFlight(jetSetter4);
+        int passengerSeatNumber = jetSetter3.getSeatNumber();
+        boolean seatNumberGreaterThan0 = passengerSeatNumber > 0;
+        boolean seatNumberLessThan200 = passengerSeatNumber < 200;
         assertEquals(flight1, jetSetter3.getFlight());
-        assertEquals(14910, flightManager.calculateRemainingBaggageWeight());
+        assertEquals(14895, flightManager.calculateRemainingBaggageWeight());
+        assertTrue(seatNumberGreaterThan0);
+        assertTrue(seatNumberLessThan200);
     }
 
     @Test
