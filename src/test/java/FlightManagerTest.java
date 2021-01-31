@@ -92,11 +92,13 @@ public class FlightManagerTest {
         flightManager.bookPassengerOntoFlight(jetSetter3);
         flightManager.bookPassengerOntoFlight(jetSetter4);
         int numberToSearchFor = jetSetter3.getSeatNumber();
-//        int otherNumberToSearchFor = jetSetter5.getSeatNumber();
-//        System.out.println(otherNumberToSearchFor);
+        int otherNumberToSearchFor = jetSetter5.getSeatNumber();
+        System.out.println(otherNumberToSearchFor);
         flightManager.passengerSeatBubbleSort();
-        boolean found = flightManager.findPassengerBySeatNumber(numberToSearchFor);
-        assertTrue(found);
+        Passenger foundPassenger = flightManager.findPassengerBySeatNumber(numberToSearchFor);
+        Passenger unfoundPassenger = flightManager.findPassengerBySeatNumber(otherNumberToSearchFor);
+        assertEquals(jetSetter3, foundPassenger);
+//        assertNull(unfoundPassenger);
 
     }
 }
