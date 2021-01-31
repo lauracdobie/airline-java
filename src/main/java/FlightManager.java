@@ -112,4 +112,67 @@ public class FlightManager {
         }
         return passenger;
     }
+
+    public ArrayList<Integer> seatNumberBubbleSort(){
+        boolean swapped = true;
+        ArrayList<Integer> seatNumbers = this.getPassengerSeatNumbers();
+        while (swapped == true){
+            for (int i = 0; i < seatNumbers.size() - 1; i++) {
+                int number = seatNumbers.get(i);
+                int adjacentNumber = seatNumbers.get(i + 1);
+                swapped = false;
+                if (number > adjacentNumber) {
+                    Collections.swap(seatNumbers, i, i +1);
+                    swapped = true;
+                }
+
+            }
+        }
+        return seatNumbers;
+    }
+
+//    public int findSeatNumber(int seatNumber){
+//        // Sort the list
+//        ArrayList<Integer> sortedList = this.seatNumberBubbleSort();
+//        int index = Integer.MAX_VALUE;
+//        // Set the min and max
+//        int min = 0;
+//        int max = sortedList.size() - 1;
+//        // Set found to false
+////        boolean found = false;
+//        //While min is less than or equal to max
+//        while (min <= max) {
+//            // Find the mid point
+//            int mid = ((min + max) / 2);
+//            int midValue = sortedList.get(mid);
+//            // If the number is higher than the mid point, set the min to mid point + 1
+//            if (seatNumber > midValue){
+//                min = mid + 1;
+//            }
+//            // If the number is lower than the mid point, set the max to mid point - 1
+//            if (seatNumber < midValue){
+//                max = mid - 1;
+//            }
+//            // If the mid point is the same as the number, set found to true and return the passenger object
+//            if (seatNumber == midValue){
+////                found = true;
+//                index = mid;
+//                break;
+//            }
+//        }
+//        return index;
+//    }
+
+//    public Passenger findPassengerBySeatNumber(int seatNumber){
+//        Passenger foundPassenger = null;
+//        ArrayList<Integer> sortedList = this.seatNumberBubbleSort();
+//        int value = Collections.binarySearch(sortedList, seatNumber);
+//        ArrayList<Passenger> passengerList = this.flight.getPassengerList();
+//        for (Passenger passenger : passengerList) {
+//            if (passenger.getSeatNumber() == value) {
+//                foundPassenger = passenger;
+//            }
+//        }
+//        return foundPassenger;
+//    }
 }
