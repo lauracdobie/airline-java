@@ -24,8 +24,8 @@ public class FlightManagerTest {
         jetSetter2 = new Passenger("Mercedes Lindo", 1);
         jetSetter3 = new Passenger("Ludovine Le Mercier", 3);
         jetSetter4 = new Passenger("Rudolph Brun", 1);
-        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 200, 30000);
-        busyPlane = new Plane(PlaneType.GLIDINGGUILLEMOT403, 1, 1, 15000);
+        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 30000);
+        busyPlane = new Plane(PlaneType.GLIDINGGUILLEMOT403, 1, 15000);
         flight1 = new Flight(hopefulPuffin, "EZY3498", IATACode.EDI, IATACode.GLA, "14:00");
         flight2 = new Flight(busyPlane, "EZY6142", IATACode.LGW, IATACode.NCL, "07:00");
         flightManager = new FlightManager(flight1);
@@ -79,13 +79,13 @@ public class FlightManagerTest {
         assertTrue(seatNumberLessThan200);
     }
 
-    @Test
-    public void canGetShuffledListOfSeatNumbers() {
-        assertEquals(200, flightManager.getShuffledSeatNumbers().size());
-    }
-
-    @Test
-    public void canGetRandomSeatNumber() {
-        assertNotNull(flightManager.getRandomSeatNumber());
-    }
+//    @Test
+//    public void canGetShuffledListOfSeatNumbers() {
+//        assertEquals(200, flightManager.getShuffledSeatNumbers().size());
+//    }
+//
+//    @Test
+//    public void canGetRandomSeatNumber() {
+//        assertNotNull(flightManager.getRandomSeatNumber());
+//    }
 }

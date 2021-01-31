@@ -1,15 +1,24 @@
+import java.util.ArrayList;
+
 public class Plane {
 
     private PlaneType model;
     private int capacity;
     private int totalWeight;
     private int seats;
+    private ArrayList<Integer> seatNumbers;
 
-    public Plane(PlaneType model, int capacity, int seats, int totalWeight){
+    public Plane(PlaneType model, int capacity, int totalWeight){
         this.model = model;
         this.capacity = capacity;
         this.seats = seats;
         this.totalWeight = totalWeight;
+        this.seatNumbers = new ArrayList<>();
+        int seatNumber = 1;
+        while (seatNumbers.size() < this.capacity) {
+            seatNumbers.add(seatNumber);
+            seatNumber ++;
+        }
     }
 
     public PlaneType getModel(){
@@ -28,13 +37,21 @@ public class Plane {
         this.capacity = capacity;
     }
 
-    public int getSeats() {
-        return this.seats;
+    public ArrayList<Integer> getSeatNumbers() {
+        return seatNumbers;
     }
 
-    public void setSeats(int number) {
-        this.seats = number;
+    public void setSeatNumbers(ArrayList<Integer> seatNumbers) {
+        this.seatNumbers = seatNumbers;
     }
+
+    //    public int getSeats() {
+//        return this.seats;
+//    }
+//
+//    public void setSeats(int number) {
+//        this.seats = number;
+//    }
 
     public int getTotalWeight() {
         return this.totalWeight;

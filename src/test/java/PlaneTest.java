@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class PlaneTest {
@@ -8,7 +10,7 @@ public class PlaneTest {
 
     @Before
     public void before() {
-        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 200, 20000);
+        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200,20000);
     }
 
     @Test
@@ -35,13 +37,16 @@ public class PlaneTest {
 
     @Test
     public void canGetSeats() {
-        assertEquals(200, hopefulPuffin.getSeats());
+        assertEquals(200, hopefulPuffin.getSeatNumbers().size());
     }
 
     @Test
     public void canSetSeats() {
-        hopefulPuffin.setSeats(150);
-        assertEquals(150, hopefulPuffin.getCapacity());
+        ArrayList<Integer> updatedSeatNumbers = new ArrayList<>();
+        updatedSeatNumbers.add(1);
+        updatedSeatNumbers.add(2);
+        hopefulPuffin.setSeatNumbers(updatedSeatNumbers);
+        assertEquals(2, hopefulPuffin.getSeatNumbers().size());
     }
 
     @Test

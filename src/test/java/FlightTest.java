@@ -18,8 +18,8 @@ public class FlightTest {
     public void before() {
         jetSetter1 = new Passenger("Giovanni Rosso", 2);
         jetSetter2 = new Passenger("Mercedes Lindo", 1);
-        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 200, 30000);
-        busyPlane = new Plane(PlaneType.GLIDINGGUILLEMOT403, 1, 1, 15000);
+        hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 30000);
+        busyPlane = new Plane(PlaneType.GLIDINGGUILLEMOT403, 1, 15000);
         flight1 = new Flight(hopefulPuffin, "EZY3498", IATACode.EDI, IATACode.GLA, "14:00");
         flight2 = new Flight(busyPlane, "EZY6142", IATACode.LGW, IATACode.NCL, "07:00");
     }

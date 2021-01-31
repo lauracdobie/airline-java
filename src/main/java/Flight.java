@@ -39,7 +39,7 @@ public class Flight {
     }
 
     public int getTotalSeats() {
-        return this.plane.getSeats();
+        return this.plane.getSeatNumbers().size();
     }
 
     public String getFlightNumber() {
