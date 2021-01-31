@@ -34,10 +34,6 @@ public class Flight {
         this.plane = plane;
     }
 
-//    public int getAvailableSeats() {
-//        return this.plane.getCapacity();
-//    }
-
     public int getRemainingSeats() {
         return this.plane.getSeatNumbers().size();
     }

@@ -11,7 +11,8 @@ public class FlightManager {
     }
 
     public int getPassengerBaggageWeight(Passenger passenger) {
-        return passenger.getNumberOfBags() * 15;
+        int bagWeight = getFlightBaggageWeight() / this.flight.getPlane().getCapacity();
+        return passenger.getNumberOfBags() * bagWeight;
     }
 
     public int getTotalPassengerBaggageWeight() {
