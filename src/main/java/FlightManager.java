@@ -82,7 +82,7 @@ public class FlightManager {
         return passengerList;
     }
 
-    public Passenger findPassengerBySeatNumber(int seatNumber){
+    public boolean findPassengerBySeatNumber(int seatNumber){
         // Sort the list
         ArrayList<Passenger> sortedList = this.passengerSeatBubbleSort();
         // Set the min and max
@@ -90,10 +90,10 @@ public class FlightManager {
         int max = this.flight.getPassengerList().size() - 1;
         // Set found to false
         boolean found = false;
-        // Find the mid point
-        int mid = round((max - min) / 2);
         //While found is false
-        while (found) {
+        while (min <= max) {
+            // Find the mid point
+            int mid = ((min + max) / 2);
             Passenger passenger = (Passenger) this.flight.getPassengerList().get(mid);
             // If the number is higher than the mid point, set the min to mid point + 1
             if (passenger.getSeatNumber() > mid){
@@ -107,7 +107,8 @@ public class FlightManager {
             if (passenger.getSeatNumber() == mid){
                 found = true;
             }
+            return true;
         }
-        return (Passenger) this.flight.getPassengerList().get(mid);
+        return false;
     }
 }

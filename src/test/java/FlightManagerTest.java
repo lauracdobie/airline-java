@@ -11,6 +11,7 @@ public class FlightManagerTest {
     Passenger jetSetter2;
     Passenger jetSetter3;
     Passenger jetSetter4;
+    Passenger jetSetter5;
     Plane hopefulPuffin;
     Plane busyPlane;
     Flight flight1;
@@ -24,6 +25,7 @@ public class FlightManagerTest {
         jetSetter2 = new Passenger("Mercedes Lindo", 1);
         jetSetter3 = new Passenger("Ludovine Le Mercier", 3);
         jetSetter4 = new Passenger("Rudolph Brun", 1);
+        jetSetter5 = new Passenger("Agnes Smith", 1);
         hopefulPuffin = new Plane(PlaneType.HOPEFULPUFFIN404, 200, 10000);
         busyPlane = new Plane(PlaneType.GLIDINGGUILLEMOT403, 1, 15000);
         flight1 = new Flight(hopefulPuffin, "EZY3498", IATACode.EDI, IATACode.GLA, "14:00");
@@ -90,9 +92,11 @@ public class FlightManagerTest {
         flightManager.bookPassengerOntoFlight(jetSetter3);
         flightManager.bookPassengerOntoFlight(jetSetter4);
         int numberToSearchFor = jetSetter3.getSeatNumber();
+//        int otherNumberToSearchFor = jetSetter5.getSeatNumber();
+//        System.out.println(otherNumberToSearchFor);
         flightManager.passengerSeatBubbleSort();
-        Passenger foundPassenger = flightManager.findPassengerBySeatNumber(numberToSearchFor);
-        assertEquals(jetSetter3.getName(), foundPassenger.getName());
+        boolean found = flightManager.findPassengerBySeatNumber(numberToSearchFor);
+        assertTrue(found);
 
     }
 }
