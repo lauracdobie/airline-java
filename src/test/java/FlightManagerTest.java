@@ -96,8 +96,9 @@ public class FlightManagerTest {
         System.out.println(otherNumberToSearchFor);
         flightManager.passengerSeatBubbleSort();
         Passenger foundPassenger = flightManager.findPassengerBySeatNumber(numberToSearchFor);
+        System.out.println(foundPassenger.getName());
         Passenger unfoundPassenger = flightManager.findPassengerBySeatNumber(otherNumberToSearchFor);
-        assertEquals(jetSetter3, foundPassenger);
+        assertEquals(jetSetter3.getName(), foundPassenger.getName());
 //        assertNull(unfoundPassenger);
 
     }
