@@ -66,13 +66,14 @@ public class FlightManager {
         boolean swapped = true;
         ArrayList<Passenger> passengerList = this.flight.getPassengerList();
         while (swapped == true){
-            for (Passenger flightPassenger : passengerList) {
-                int passengerIndex = passengerList.indexOf(flightPassenger);
-                Passenger adjacentPassenger = passengerList.get(passengerIndex + 1);
-                int adjacentPassengerIndex = passengerList.indexOf(adjacentPassenger);
+            for (int i = 0; i < passengerList.size() - 1; i++) {
+//                int passengerIndex = passengerList.indexOf(flightPassenger);
+                Passenger flightPassenger = passengerList.get(i);
+                Passenger adjacentPassenger = passengerList.get(i + 1);
+//                int adjacentPassengerIndex = passengerList.indexOf(adjacentPassenger);
                 swapped = false;
                 if (flightPassenger.getSeatNumber() > adjacentPassenger.getSeatNumber()) {
-                    Collections.swap(passengerList, passengerIndex, adjacentPassengerIndex);
+                    Collections.swap(passengerList, i, i +1);
                     swapped = true;
                 }
 

@@ -76,12 +76,12 @@ public class FlightManagerTest {
         assertEquals(4, flightManager.flight.getNumberOfPassengers());
     }
 
-//    @Test
-//    public void canSortPassengersByFlightNumber(){
-//        flightManager.bookPassengerOntoFlight(jetSetter3);
-//        flightManager.bookPassengerOntoFlight(jetSetter4);
-//        flightManager.getPassengerSeatNumbers();
-////        flightManager.passengerSeatBubbleSort();
-////        flightManager.getPassengerSeatNumbers();
-//    }
+    @Test
+    public void canSortPassengersByFlightNumber(){
+        flightManager.bookPassengerOntoFlight(jetSetter3);
+        flightManager.bookPassengerOntoFlight(jetSetter4);
+        flightManager.getPassengerSeatNumbers();
+        flightManager.passengerSeatBubbleSort();
+        flightManager.getPassengerSeatNumbers();
+    }
 }
