@@ -74,4 +74,13 @@ public class FlightManagerTest {
         assertEquals(4825, flightManager.calculateRemainingBaggageWeight());
         assertEquals(196, flightManager.flight.getRemainingSeats());
     }
+
+    @Test
+    public void canSortPassengersByFlightNumber(){
+        flightManager.bookPassengerOntoFlight(jetSetter3);
+        flightManager.bookPassengerOntoFlight(jetSetter4);
+        flightManager.getPassengerSeatNumbers();
+//        flightManager.passengerSeatBubbleSort();
+//        flightManager.getPassengerSeatNumbers();
+    }
 }

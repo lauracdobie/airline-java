@@ -44,4 +44,33 @@ public class FlightManager {
         this.flight.addPassengerToFlight(passenger);
         this.assignFlightToPassenger();
     }
+
+    public ArrayList<Integer> getPassengerSeatNumbers() {
+        ArrayList<Integer> seatNumbers = new ArrayList<>();
+        ArrayList<Passenger> passengerList = this.flight.getPassengerList();
+        for (Passenger flightPassenger : passengerList){
+            seatNumbers.add(flightPassenger.getSeatNumber());
+        }
+        System.out.println(seatNumbers);
+        return seatNumbers;
+    }
+
+    public ArrayList<Passenger> passengerSeatBubbleSort(){
+        boolean swapped = true;
+        ArrayList<Passenger> passengerList = this.flight.getPassengerList();
+        while (swapped == true){
+            for (Passenger flightPassenger : passengerList) {
+                int passengerIndex = passengerList.indexOf(flightPassenger);
+                Passenger adjacentPassenger = passengerList.get(passengerIndex + 1);
+                int adjacentPassengerIndex = passengerList.indexOf(adjacentPassenger);
+                swapped = false;
+                if (flightPassenger.getSeatNumber() > adjacentPassenger.getSeatNumber()) {
+                    Collections.swap(passengerList, passengerIndex, adjacentPassengerIndex);
+                    swapped = true;
+                }
+
+            }
+        }
+        return passengerList;
+    }
 }
