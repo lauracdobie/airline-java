@@ -30,8 +30,8 @@ public class FlightManagerTest {
         flight2 = new Flight(busyPlane, "EZY6142", IATACode.LGW, IATACode.NCL, "07:00");
         flightManager = new FlightManager(flight1);
         flightManager2 = new FlightManager(flight2);
-        flight1.addPassengerToFlight(jetSetter1);
-        flight1.addPassengerToFlight(jetSetter2);
+        flightManager.bookPassengerOntoFlight(jetSetter1);
+        flightManager.bookPassengerOntoFlight(jetSetter2);
     }
 
     @Test
@@ -61,9 +61,8 @@ public class FlightManagerTest {
 
     @Test
     public void canAssignFlightToPassenger() {
-        flightManager.assignFlightToPassenger();
+        flightManager.assignFlightToPassenger(jetSetter1);
         assertEquals(flight1, jetSetter1.getFlight());
-        assertEquals(flight1, jetSetter2.getFlight());
     }
 
     @Test
@@ -71,16 +70,18 @@ public class FlightManagerTest {
         flightManager.bookPassengerOntoFlight(jetSetter3);
         flightManager.bookPassengerOntoFlight(jetSetter4);
         assertEquals(flight1, jetSetter3.getFlight());
+        assertEquals(flight1, jetSetter4.getFlight());
         assertEquals(4825, flightManager.calculateRemainingBaggageWeight());
         assertEquals(196, flightManager.flight.getRemainingSeats());
+        assertEquals(4, flightManager.flight.getNumberOfPassengers());
     }
 
-    @Test
-    public void canSortPassengersByFlightNumber(){
-        flightManager.bookPassengerOntoFlight(jetSetter3);
-        flightManager.bookPassengerOntoFlight(jetSetter4);
-        flightManager.getPassengerSeatNumbers();
-//        flightManager.passengerSeatBubbleSort();
+//    @Test
+//    public void canSortPassengersByFlightNumber(){
+//        flightManager.bookPassengerOntoFlight(jetSetter3);
+//        flightManager.bookPassengerOntoFlight(jetSetter4);
 //        flightManager.getPassengerSeatNumbers();
-    }
+////        flightManager.passengerSeatBubbleSort();
+////        flightManager.getPassengerSeatNumbers();
+//    }
 }

@@ -33,16 +33,23 @@ public class FlightManager {
         return this.getFlightBaggageWeight() - this.getTotalPassengerBaggageWeight();
     }
 
-    public void assignFlightToPassenger() {
-        ArrayList<Passenger> flightPassengers = this.flight.getPassengerList();
-        for (Passenger passenger : flightPassengers) {
-            passenger.setFlight(this.flight);
-        }
+    public void assignFlightToPassenger(Passenger passenger) {
+//        ArrayList<Passenger> flightPassengers = this.flight.getPassengerList();
+//        for (Passenger passenger : flightPassengers) {
+//            passenger.setFlight(this.flight);
+//        }
+        passenger.setFlight(this.flight);
+    }
+
+    public void assignSeatNumberToPassenger(Passenger passenger) {
+        int passengerSeatNumber = this.flight.getPlane().getSeatNumbers().remove(0);
+        passenger.setSeatNumber(passengerSeatNumber);
     }
 
     public void bookPassengerOntoFlight(Passenger passenger) {
         this.flight.addPassengerToFlight(passenger);
-        this.assignFlightToPassenger();
+        this.assignSeatNumberToPassenger(passenger);
+        this.assignFlightToPassenger(passenger);
     }
 
     public ArrayList<Integer> getPassengerSeatNumbers() {

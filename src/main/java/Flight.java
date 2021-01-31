@@ -73,7 +73,7 @@ public class Flight {
     public void addPassengerToFlight(Passenger passenger) {
         if (this.plane.getSeatNumbers().size() > 0){
             this.passengers.add(passenger);
-            this.plane.getSeatNumbers().remove(0);
+//            this.plane.getSeatNumbers().remove(0);
         }
     }
 }
