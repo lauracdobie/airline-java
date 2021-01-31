@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+import static java.lang.Math.round;
+
 public class FlightManager {
 
     Flight flight;
@@ -67,10 +69,8 @@ public class FlightManager {
         ArrayList<Passenger> passengerList = this.flight.getPassengerList();
         while (swapped == true){
             for (int i = 0; i < passengerList.size() - 1; i++) {
-//                int passengerIndex = passengerList.indexOf(flightPassenger);
                 Passenger flightPassenger = passengerList.get(i);
                 Passenger adjacentPassenger = passengerList.get(i + 1);
-//                int adjacentPassengerIndex = passengerList.indexOf(adjacentPassenger);
                 swapped = false;
                 if (flightPassenger.getSeatNumber() > adjacentPassenger.getSeatNumber()) {
                     Collections.swap(passengerList, i, i +1);
@@ -80,5 +80,34 @@ public class FlightManager {
             }
         }
         return passengerList;
+    }
+
+    public Passenger findPassengerBySeatNumber(int seatNumber){
+        // Sort the list
+        ArrayList<Passenger> sortedList = this.passengerSeatBubbleSort();
+        // Set the min and max
+        int min = 0;
+        int max = this.flight.getPassengerList().size() - 1;
+        // Set found to false
+        boolean found = false;
+        // Find the mid point
+        int mid = round((max - min) / 2);
+        //While found is false
+        while (found) {
+            Passenger passenger = (Passenger) this.flight.getPassengerList().get(mid);
+            // If the number is higher than the mid point, set the min to mid point + 1
+            if (passenger.getSeatNumber() > mid){
+                min = mid + 1;
+            }
+            // If the number is lower than the mid point, set the max to mid point - 1
+            if (passenger.getSeatNumber() < mid){
+                max = mid - 1;
+            }
+            // If the mid point is the same as the number, set found to true and return the passenger object
+            if (passenger.getSeatNumber() == mid){
+                found = true;
+            }
+        }
+        return (Passenger) this.flight.getPassengerList().get(mid);
     }
 }

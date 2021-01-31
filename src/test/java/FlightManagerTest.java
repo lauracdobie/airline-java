@@ -84,4 +84,15 @@ public class FlightManagerTest {
         flightManager.passengerSeatBubbleSort();
         flightManager.getPassengerSeatNumbers();
     }
+
+    @Test
+    public void canGetPassengerBySeatNumber() {
+        flightManager.bookPassengerOntoFlight(jetSetter3);
+        flightManager.bookPassengerOntoFlight(jetSetter4);
+        int numberToSearchFor = jetSetter3.getSeatNumber();
+        flightManager.passengerSeatBubbleSort();
+        Passenger foundPassenger = flightManager.findPassengerBySeatNumber(numberToSearchFor);
+        assertEquals(jetSetter3.getName(), foundPassenger.getName());
+
+    }
 }
