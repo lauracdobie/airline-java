@@ -34,11 +34,11 @@ public class Flight {
         this.plane = plane;
     }
 
-    public int getAvailableSeats() {
-        return this.plane.getCapacity();
-    }
+//    public int getAvailableSeats() {
+//        return this.plane.getCapacity();
+//    }
 
-    public int getTotalSeats() {
+    public int getRemainingSeats() {
         return this.plane.getSeatNumbers().size();
     }
 
@@ -75,9 +75,9 @@ public class Flight {
     }
 
     public void addPassengerToFlight(Passenger passenger) {
-        if (this.plane.getCapacity() > 0){
+        if (this.plane.getSeatNumbers().size() > 0){
             this.passengers.add(passenger);
-            this.plane.setCapacity(this.plane.getCapacity() - 1);
+            this.plane.getSeatNumbers().remove(0);
         }
     }
 }

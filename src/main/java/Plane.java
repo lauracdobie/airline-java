@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Plane {
 
@@ -19,6 +20,7 @@ public class Plane {
             seatNumbers.add(seatNumber);
             seatNumber ++;
         }
+        Collections.shuffle(this.seatNumbers);
     }
 
     public PlaneType getModel(){
@@ -38,20 +40,12 @@ public class Plane {
     }
 
     public ArrayList<Integer> getSeatNumbers() {
-        return seatNumbers;
+        return this.seatNumbers;
     }
 
     public void setSeatNumbers(ArrayList<Integer> seatNumbers) {
         this.seatNumbers = seatNumbers;
     }
-
-    //    public int getSeats() {
-//        return this.seats;
-//    }
-//
-//    public void setSeats(int number) {
-//        this.seats = number;
-//    }
 
     public int getTotalWeight() {
         return this.totalWeight;

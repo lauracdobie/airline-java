@@ -28,7 +28,7 @@ public class FlightTest {
     public void canCreateFlight() {
         assertNotNull(flight1);
         assertEquals(hopefulPuffin, flight1.getPlane());
-        assertEquals(200, flight1.getAvailableSeats());
+        assertEquals(200, flight1.getRemainingSeats());
         assertEquals(IATACode.GLA, flight1.getDepartureAirport());
         assertEquals(IATACode.EDI, flight1.getDestination());
         assertEquals("14:00", flight1.getDepartureTime());
@@ -67,7 +67,8 @@ public class FlightTest {
     public void canBookPassengerOntoFlightIfSpaces() {
         flight1.addPassengerToFlight(jetSetter1);
         flight1.addPassengerToFlight(jetSetter2);
-        assertEquals(198, flight1.getAvailableSeats());
+        assertEquals(198, flight1.getRemainingSeats());
+        assertEquals(2, flight1.getNumberOfPassengers());
     }
 
     @Test
@@ -75,6 +76,6 @@ public class FlightTest {
         flight2.addPassengerToFlight(jetSetter1);
         flight2.addPassengerToFlight(jetSetter2);
         assertEquals(1, flight2.getNumberOfPassengers());
-        assertEquals(0, flight2.getAvailableSeats());
+        assertEquals(0, flight2.getRemainingSeats());
     }
 }

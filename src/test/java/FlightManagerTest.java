@@ -70,22 +70,8 @@ public class FlightManagerTest {
     public void canBookPassengerOntoFlight() {
         flightManager.bookPassengerOntoFlight(jetSetter3);
         flightManager.bookPassengerOntoFlight(jetSetter4);
-        int passengerSeatNumber = jetSetter3.getSeatNumber();
-        boolean seatNumberGreaterThan0 = passengerSeatNumber > 0;
-        boolean seatNumberLessThan200 = passengerSeatNumber < 200;
         assertEquals(flight1, jetSetter3.getFlight());
         assertEquals(14895, flightManager.calculateRemainingBaggageWeight());
-        assertTrue(seatNumberGreaterThan0);
-        assertTrue(seatNumberLessThan200);
+        assertEquals(196, flightManager.flight.getRemainingSeats());
     }
-
-//    @Test
-//    public void canGetShuffledListOfSeatNumbers() {
-//        assertEquals(200, flightManager.getShuffledSeatNumbers().size());
-//    }
-//
-//    @Test
-//    public void canGetRandomSeatNumber() {
-//        assertNotNull(flightManager.getRandomSeatNumber());
-//    }
 }
