@@ -88,25 +88,22 @@ public class FlightManager {
         ArrayList<Passenger> sortedList = this.passengerSeatBubbleSort();
         // Set the min and max
         int min = 0;
-        int max = this.flight.getPassengerList().size() - 1;
-        // Set found to false
-        boolean found = false;
+        int max = sortedList.size() - 1;
         //While min is less than or equal to max
         while (min <= max) {
             // Find the mid point
             int mid = ((min + max) / 2);
-            passenger = (Passenger) this.flight.getPassengerList().get(mid);
+            passenger = sortedList.get(mid);
             // If the number is higher than the mid point, set the min to mid point + 1
-            if (passenger.getSeatNumber() > mid){
+            if (passenger.getSeatNumber() > seatNumber){
                 min = mid + 1;
             }
             // If the number is lower than the mid point, set the max to mid point - 1
-            if (passenger.getSeatNumber() < mid){
+            if (passenger.getSeatNumber() < seatNumber){
                 max = mid - 1;
             }
             // If the mid point is the same as the number, set found to true and return the passenger object
-            if (passenger.getSeatNumber() == mid){
-                found = true;
+            if (passenger.getSeatNumber() == seatNumber){
                 return passenger;
             }
         }
