@@ -101,7 +101,6 @@ public class FlightManagerTest {
         System.out.println(foundPassenger.getName());
         Passenger unfoundPassenger = flightManager.findPassengerBySeatNumber(otherNumberToSearchFor);
         assertEquals(jetSetter3.getName(), foundPassenger.getName());
-//        assertNull(unfoundPassenger);
-
+        assertNull(unfoundPassenger);
     }
 }

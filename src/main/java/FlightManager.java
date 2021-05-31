@@ -82,34 +82,34 @@ public class FlightManager {
         return passengerList;
     }
 
-    public Passenger findPassengerBySeatNumber(int seatNumber){
-        Passenger passenger = null;
-        // Sort the list
-        ArrayList<Passenger> sortedList = this.passengerSeatBubbleSort();
-        // Set the min and max
-        int min = 0;
-        int max = sortedList.size() - 1;
-        //While min is less than or equal to max
-        while (min <= max) {
-            // Find the mid point
-            int mid = (min + max) / 2;
-
-            passenger = sortedList.get(mid);
-            // If the number is higher than the mid point, set the min to mid point + 1
-            if (passenger.getSeatNumber() > seatNumber){
-                min = mid + 1;
-            }
-            // If the number is lower than the mid point, set the max to mid point - 1
-            if (passenger.getSeatNumber() < seatNumber){
-                max = mid - 1;
-            }
-            // If the mid point is the same as the number, set found to true and return the passenger object
-            if (passenger.getSeatNumber() == seatNumber){
-                return passenger;
-            }
-        }
-        return passenger;
-    }
+//    public Passenger findPassengerBySeatNumber(int seatNumber){
+//        Passenger passenger = null;
+//        // Sort the list
+//        ArrayList<Passenger> sortedList = this.passengerSeatBubbleSort();
+//        // Set the min and max
+//        int min = 0;
+//        int max = sortedList.size() - 1;
+//        //While min is less than or equal to max
+//        while (min <= max) {
+//            // Find the mid point
+//            int mid = (min + max) / 2;
+//
+//            passenger = sortedList.get(mid);
+//            // If the number is higher than the mid point, set the min to mid point + 1
+//            if (passenger.getSeatNumber() > seatNumber){
+//                min = mid + 1;
+//            }
+//            // If the number is lower than the mid point, set the max to mid point - 1
+//            if (passenger.getSeatNumber() < seatNumber){
+//                max = mid - 1;
+//            }
+//            // If the mid point is the same as the number, set found to true and return the passenger object
+//            if (passenger.getSeatNumber() == seatNumber){
+//                return passenger;
+//            }
+//        }
+//        return passenger;
+//    }
 
     public ArrayList<Integer> seatNumberBubbleSort(){
         boolean swapped = true;
@@ -129,37 +129,50 @@ public class FlightManager {
         return seatNumbers;
     }
 
-//    public int findSeatNumber(int seatNumber){
-//        // Sort the list
-//        ArrayList<Integer> sortedList = this.seatNumberBubbleSort();
-//        int index = Integer.MAX_VALUE;
-//        // Set the min and max
-//        int min = 0;
-//        int max = sortedList.size() - 1;
-//        // Set found to false
-////        boolean found = false;
-//        //While min is less than or equal to max
-//        while (min <= max) {
-//            // Find the mid point
-//            int mid = ((min + max) / 2);
-//            int midValue = sortedList.get(mid);
-//            // If the number is higher than the mid point, set the min to mid point + 1
-//            if (seatNumber > midValue){
-//                min = mid + 1;
-//            }
-//            // If the number is lower than the mid point, set the max to mid point - 1
-//            if (seatNumber < midValue){
-//                max = mid - 1;
-//            }
-//            // If the mid point is the same as the number, set found to true and return the passenger object
-//            if (seatNumber == midValue){
-////                found = true;
-//                index = mid;
-//                break;
-//            }
-//        }
-//        return index;
-//    }
+    public int findSeatNumber(int seatNumber){
+        // Sort the list
+        ArrayList<Integer> sortedList = this.seatNumberBubbleSort();
+        int index = -1;
+        // Set the min and max
+        int min = 0;
+        int max = sortedList.size() - 1;
+        //While min is less than or equal to max
+        while (min <= max) {
+            // Find the mid point
+            int mid = ((min + max) / 2);
+            int midValue = sortedList.get(mid);
+            // If the number is higher than the mid point, set the min to mid point + 1
+            if (seatNumber > midValue){
+                min = mid + 1;
+            }
+            // If the number is lower than the mid point, set the max to mid point - 1
+            if (seatNumber < midValue){
+                max = mid - 1;
+            }
+            // If the mid point is the same as the number, set found to true and return the passenger object
+            if (seatNumber == midValue){
+                index = midValue;
+                break;
+            }
+        }
+        return index;
+    }
+
+    public Passenger findPassengerBySeatNumber(int seatNumber){
+        Passenger foundPassenger = null;
+        int foundSeatNumber = this.findSeatNumber(seatNumber);
+        if (foundSeatNumber == -1) {
+            return null;
+        }
+        ArrayList<Passenger> passengerList = this.flight.getPassengerList();
+        for (Passenger passenger : passengerList) {
+            if (passenger.getSeatNumber() == foundSeatNumber){
+                foundPassenger = passenger;
+                break;
+            }
+        }
+        return foundPassenger;
+    }
 
 //    public Passenger findPassengerBySeatNumber(int seatNumber){
 //        Passenger foundPassenger = null;
