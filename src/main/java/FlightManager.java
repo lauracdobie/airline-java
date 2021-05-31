@@ -92,7 +92,8 @@ public class FlightManager {
         //While min is less than or equal to max
         while (min <= max) {
             // Find the mid point
-            int mid = ((min + max) / 2);
+            int mid = (min + max) / 2;
+
             passenger = sortedList.get(mid);
             // If the number is higher than the mid point, set the min to mid point + 1
             if (passenger.getSeatNumber() > seatNumber){

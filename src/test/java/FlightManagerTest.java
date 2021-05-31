@@ -82,8 +82,10 @@ public class FlightManagerTest {
     public void canSortPassengersByFlightNumber(){
         flightManager.bookPassengerOntoFlight(jetSetter3);
         flightManager.bookPassengerOntoFlight(jetSetter4);
+        System.out.println("Passenger seat numbers: ");
         flightManager.getPassengerSeatNumbers();
         flightManager.passengerSeatBubbleSort();
+        System.out.println("Sorted seat numbers: ");
         flightManager.getPassengerSeatNumbers();
     }
 
